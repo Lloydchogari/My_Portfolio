@@ -1,0 +1,890 @@
+// Mobile Responsiveness
+@media (max-width: 1024px) {
+  .skills-page {
+    .code-animation {
+      width: 350px;
+      height: 280px;
+      bottom: 1rem;
+      left: 1rem;
+    }
+
+    .languages-section {
+      .languages-grid {
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+        gap: 1.2rem;
+        
+        .language-card {
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-page {
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+
+    .spline-scene {
+      width: 180px;
+      height: 180px;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .intro-heading {
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+      max-width: calc(100% - 200px);
+      margin-bottom: 1.5rem;
+    }
+
+    .code-animation {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      height: 250px;
+      margin: 2rem auto 1rem;
+      bottom: auto;
+      left: auto;
+    }
+
+    .languages-section {
+      margin: 1.5rem 0;
+
+      .languages-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 1rem;
+
+        .language-card {
+          height: 110px;
+
+          .card-inner {
+            .card-front,
+            .card-back {
+              padding: 0.8rem;
+
+              .lang-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+              }
+
+              h3 {
+                font-size: 1.1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .jobs-section {
+      margin: 2rem 0;
+
+      .jobs-container {
+        h2 {
+          font-size: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .jobs-unified-card {
+          padding: 1.5rem;
+
+          .job-item {
+            margin: 1rem 0;
+
+            .job-content {
+              h3 {
+                font-size: 1.2rem;
+              }
+
+              p {
+                font-size: 0.9rem;
+              }
+            }
+
+            .job-divider {
+              margin: 1.5rem 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-page {
+    .spline-scene {
+      width: 140px;
+      height: 140px;
+    }
+
+    .intro-heading {
+      max-width: calc(100% - 150px);
+      font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
+    .code-animation {
+      max-width: 320px;
+      height: 220px;
+      
+      .code-content {
+        padding: 1rem;
+        
+        pre {
+          font-size: 0.8rem;
+          line-height: 1.6;
+        }
+      }
+    }
+
+    .languages-section {
+      .languages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        
+        .language-card {
+          height: 100px;
+          
+          .card-inner {
+            .card-front {
+              .lang-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+              }
+              
+              h3 {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .jobs-section {
+      .jobs-container {
+        h2 {
+          font-size: 1.3rem;
+          margin-bottom: 1rem;
+        }
+        
+        .jobs-unified-card {
+          padding: 1rem;
+          
+          .job-item {
+            margin: 0.8rem 0;
+            
+            .job-content {
+              h3 {
+                font-size: 1rem;
+              }
+              
+              p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+              }
+            }
+            
+            .job-divider {
+              margin: 1rem 0.3rem;
+              height: 1.5px;
+            }
+          }
+        }
+      }
+    }
+  }
+} // Enhanced font imports for better readability
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+// CSS Variables for theming
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #00e0ff;
+  --code-bg: #f1f5f9;
+  --particle-color: #cbd5e1;
+  --primary-font: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+}
+
+[data-theme="dark"], .dark {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --card-bg: #000000;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --code-bg: #1e1e2e;
+  --particle-color: #475569;
+}
+
+.skills-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-family: var(--primary-font);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* keep horizontal bar off */
+  overflow-y: auto;  
+
+  // 3D Robot at top right
+  .spline-scene {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    z-index: 10;
+    animation: fadeSlideIn 2s ease forwards;
+  }
+
+  // Main heading
+  .intro-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    animation: fadeSlideIn 1.5s ease forwards;
+    z-index: 5;
+    position: relative;
+    max-width: calc(100% - 320px);
+    
+
+    span {
+      color: red;
+      background-size: 200% 200%;
+      font-size: 5rem;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+  }
+
+  // Code Animation - Left Side
+  .code-animation {
+    position: fixed;
+    bottom: 1rem;
+    right: 3rem;
+    width: 420px;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 8;
+    animation: slideInFromLeft 1s ease 2s both;
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      background: linear-gradient(135deg, #5a5858, #c1d6d5);
+      color: rgb(255, 255, 255);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: var(--primary-font);
+
+      .window-controls {
+        display: flex;
+        gap: 0.4rem;
+
+        .control {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          
+          &.red { background: #ff3126; }
+          &.yellow { background: #f8b118; }
+          &.green { background: #0fb62b; }
+        }
+      }
+
+      .file-name {
+        font-family: var(--primary-font);
+        font-weight: 500;
+      }
+    }
+
+    .code-content {
+      padding: 1.2rem;
+      height: calc(100% - 60px);
+      overflow: hidden;
+      background: #484849;
+
+      pre {
+        margin: 0;
+        font-family: var(--primary-font);
+        font-size: 0.9rem;
+        line-height: 1.8;
+        color: #eee;
+        font-weight: 400;
+
+        .javascript {
+          color: #ffe100;
+        }
+
+        .python {
+          color: #4584b6;
+        }
+
+        .cursor {
+          animation: blink 1s infinite;
+          color: var(--accent-color);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  // Languages Section
+  .languages-section {
+    margin: 2rem 7rem;
+    display: flex;
+    justify-content: left;
+    animation: fadeInUp 1s ease 0.5s both;
+    flex: 1;
+    align-items: center;
+
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      width: 100%;
+
+      .language-card {
+        height: 140px;
+        perspective: 1000px;
+        animation: cardSlideIn 0.8s ease forwards;
+        opacity: 0;
+
+        .card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+          cursor: pointer;
+
+          &:hover {
+            transform: rotateY(180deg);
+          }
+
+          .card-front,
+          .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            transition: all 0.3s ease;
+            font-family: var(--primary-font);
+          }
+
+          .card-front {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+
+            &:hover {
+              border-color: var(--hover-color);
+              box-shadow: 0 12px 30px var(--shadow-color);
+            }
+
+            .lang-icon {
+              font-size: 2.5rem;
+              margin-bottom: 0.8rem;
+            }
+
+            h3 {
+              font-size: 1.1rem;
+              font-weight: 600;
+              margin: 0;
+              color: var(--text-color);
+              font-family: var(--primary-font);
+            }
+          }
+
+          .card-back {
+            background: linear-gradient(135deg, var(--card-bg), var(--hover-color, #4f46e5));
+            transform: rotateY(180deg);
+            border: 2px solid var(--hover-color, #4f46e5);
+
+            p {
+              margin-bottom: 1rem;
+              color: white;
+              font-weight: 500;
+              font-family: var(--primary-font);
+              font-size: 0.9rem;
+            }
+
+            .expertise-level {
+              width: 80%;
+              height: 4px;
+              background: rgba(255, 255, 255, 0.3);
+              border-radius: 2px;
+              overflow: hidden;
+
+              .level-bar {
+                height: 100%;
+                width: 85%;
+                background: white;
+                border-radius: 2px;
+                animation: fillBar 2s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Jobs Section
+  .jobs-section {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    margin-left: -30rem;
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 1s ease 1s both;
+
+    .jobs-container {
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        background: linear-gradient(45deg, var(--text-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: var(--primary-font);
+        
+      }
+
+      .jobs-unified-card {
+        background: var(--card-bg);
+        border: 2px solid var(--accent-color);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px var(--shadow-color);
+        animation: jobCardSlideIn 0.8s ease forwards;
+        opacity: 0;
+
+        .job-item {
+          position: relative;
+          margin: 1.5rem 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .job-content {
+            text-align: left;
+            padding: 0 1rem;
+
+            h3 {
+              font-size: 1.4rem;
+              font-weight: 600;
+              color: var(--text-color);
+              margin-bottom: 0.8rem;
+              font-family: var(--primary-font);
+            }
+
+            p {
+              color: var(--text-color);
+              opacity: 0.8;
+              line-height: 1.6;
+              font-size: 1rem;
+              font-family: var(--primary-font);
+              font-weight: 400;
+            }
+          }
+
+          .job-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff4444, transparent);
+            margin: 2rem 1rem;
+            border-radius: 1px;
+            box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  // Floating Particles
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--particle-color);
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+    }
+
+    .explosive-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #ff6b6b, #4ecdc4, #45b7d1);
+      border-radius: 50%;
+      animation: explode linear infinite;
+      opacity: 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: 50%;
+        animation: sparkle 0.3s ease-out;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(2) rotate(270deg);
+  }
+  80% {
+    opacity: 0.3;
+    transform: scale(3) rotate(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4) rotate(450deg);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(255, 107, 107, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 40px 20px rgba(255, 107, 107, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) rotateX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes jobCardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fillBar {
+  0% { width: 0%; }
+  100% { width: 85%; }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+// Mobile Responsiveness
+@media (max-width: 1024px) {
+  .skills-page {
+    .code-animation {
+      width: 320px;
+      height: 240px;
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    .languages-section {
+      .languages-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-page {
+    padding: 1rem;
+
+    .spline-scene {
+      width: 200px;
+      height: 200px;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .intro-heading {
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      max-width: calc(100% - 220px);
+      margin-bottom: 2rem;
+    }
+
+    .code-animation {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      height: 200px;
+      margin: 2rem auto;
+      bottom: auto;
+      right: auto;
+    }
+
+    .languages-section {
+      margin: 2rem 0;
+
+      .languages-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+
+        .language-card {
+          height: 140px;
+
+          .card-inner {
+            .card-front,
+            .card-back {
+              padding: 1rem;
+
+              .lang-icon {
+                font-size: 2.5rem;
+              }
+
+              h3 {
+                font-size: 1.1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .jobs-section {
+      margin: 3rem 0;
+
+      .jobs-container {
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .jobs-grid {
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          gap: 1rem;
+
+          .job-card {
+            padding: 1.5rem;
+
+            .job-icon {
+              font-size: 2.5rem;
+            }
+
+            h3 {
+              font-size: 1.1rem;
+            }
+
+            p {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-page {
+    .spline-scene {
+      width: 150px;
+      height: 150px;
+    }
+
+    .intro-heading {
+      max-width: calc(100% - 160px);
+      font-size: clamp(1.5rem, 7vw, 2.2rem);
+    }
+
+    .code-animation {
+      max-width: 300px;
+      height: 180px;
+      
+      .code-content {
+        padding: 0.8rem;
+        
+        pre {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .languages-section {
+      .languages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        
+        .language-card {
+          height: 120px;
+          
+          .card-inner {
+            .card-front {
+              .lang-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+              }
+              
+              h3 {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .jobs-section {
+      .jobs-container {
+        h2 {
+          font-size: 1.5rem;
+        }
+        
+        .jobs-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          
+          .job-card {
+            padding: 1rem;
+            
+            .job-icon {
+              font-size: 2rem;
+            }
+            
+            h3 {
+              font-size: 1rem;
+            }
+            
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
