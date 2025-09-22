@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaWhatsapp, FaFacebook, FaLinkedin, FaInstagram, FaCog } from 'react-icons/fa';
+import { FaGithub, FaWhatsapp, FaFacebook, FaLinkedin, FaInstagram, FaCog, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import './Contact.scss';
 
 const Contact = () => {
@@ -26,6 +26,9 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      {/* Dark mode spotlight effect */}
+      {darkMode && <div className="spotlight-effect"></div>}
+      
       {/* Floating background animations */}
       <div className="floating-icons">
         {[...Array(20)].map((_, i) => (
@@ -38,44 +41,69 @@ const Contact = () => {
         ))}
       </div>
 
-     {/* 3D Robot */}
-      <div className="spline-background">
-        <iframe
-          src="https://my.spline.design/genkubgreetingrobot-cu1aQHht65BGLoRxI2rnay8k/"
-          frameBorder="0"
-          width="100%"
-          height="90%"
-          style={{ position: 'absolute', left: '20%' }}
-          allowFullScreen
-          title="Spline Scene"
-        ></iframe>
-      </div>
+      <div className="contact-container">
+        {/* Left Side - Contact Info */}
+        <div className="contact-info">
+          <h1>Get In Touch</h1>
+          
+          <div className="contact-details">
+            <div className="contact-item">
+              <FaEnvelope className="contact-icon" />
+              <span>lloyd.developer@email.com</span>
+            </div>
+            
+            <div className="contact-item">
+              <FaPhone className="contact-icon" />
+              <span>+263 123 456 789</span>
+            </div>
+            
+            <div className="contact-item">
+              <FaMapMarkerAlt className="contact-icon" />
+              <span>Harare, Zimbabwe</span>
+            </div>
+          </div>
 
-      {/* Contact Text + Form */}
-      <div className="alltext">
-        <h1>Let’s Connect</h1>
-        <p>I’m always open to exciting opportunities and collaborations. Let’s work together!</p>
+          {/* Social Icons */}
+          <div className="social-section">
+            <div className="social-icons">
+              <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" className="social-link whatsapp">
+                <FaWhatsapp />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-link facebook">
+                <FaFacebook />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-link linkedin">
+                <FaLinkedin />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-link instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://github.com" target="_blank" rel="noreferrer" className="social-link github">
+                <FaGithub />
+              </a>
+            </div>
+          </div>
+        </div>
 
-        <form className="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" rows="4" required />
-          <button type="submit">Send Message</button>
-        </form>
+        {/* Right Side - Contact Form */}
+        <div className="form-section">
+          <div className="form-container">
+            <h2>Send Me A Message</h2>
+            <p>I'm always open to exciting opportunities and collaborations. Let's work together!</p>
 
-        {/* Social Icons */}
-        <div className="social-icons">
-          <a href="#"><FaGithub /></a>
-          <a href="#"><FaLinkedin /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaFacebook /></a>
-          <a href="#"><FaWhatsapp /></a>
+            <div className="contact-form">
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea placeholder="Your Message" rows={5} required />
+              <button type="submit">Send Message</button>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Footer */}
       <div className="footer">
-        © {new Date().getFullYear()} Your Name. All Rights Reserved.
+        © {new Date().getFullYear()} Lloyd. All Rights Reserved.
       </div>
     </div>
   );
