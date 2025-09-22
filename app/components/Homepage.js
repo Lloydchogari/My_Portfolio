@@ -12,7 +12,7 @@ const Homepage = ({ onShowAbout }) => {
   return (
     <div className="homepage">
       {/* Fixed Navbar */}
-      <Navbar />
+  
 
       {/* 3D Robot */}
       <div className="spline-background">

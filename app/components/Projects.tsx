@@ -1,8 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './Projects.scss';
-import clock from './public/clock.png';
-
+image: '/clock.png'
 
 interface Project {
   title: string;
@@ -36,24 +35,24 @@ const Projects = () => {
   }, [darkMode]);
 
   const websiteProjects: Project[] = [
-    { title: 'FitSnap', description: 'A fitness progress sharing app.', tags: ['React', 'Tailwind'], image: '/projects/clock.png', github: '#', live: '#' },
-    { title: 'Alumni Wall', description: 'Alumni share success stories.', tags: ['Python', 'Streamlit'], image: '/projects/alumni.png', github: '#', live: '#' },
-    { title: 'Portfolio Site', description: 'Personal developer portfolio.', tags: ['HTML', 'CSS', 'JS'], image: '/projects/portfolio.png', github: '#', live: '#' },
-    { title: 'SPClub', description: 'Gym membership management.', tags: ['Next.js', 'SCSS'], image: '/projects/spclub.png', github: '#', live: '#' },
+    { title: 'FitSnap', description: 'A fitness progress sharing app.', tags: ['React', 'Tailwind'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'Alumni Wall', description: 'Alumni share success stories.', tags: ['Python', 'Streamlit'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'Portfolio Site', description: 'Personal developer portfolio.', tags: ['HTML', 'CSS', 'JS'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'SPClub', description: 'Gym membership management.', tags: ['Next.js', 'SCSS'], image: '/clock.png', github: '#', live: '#' },
   ];
 
   const applicationProjects: Project[] = [
-    { title: 'Malaria Dashboard', description: 'Interactive malaria stats dashboard.', tags: ['React', 'Plotly'], image: '/projects/malaria.png', github: '#', live: '#' },
-    { title: 'Task Manager', description: 'Manage daily tasks efficiently.', tags: ['React', 'Firebase'], image: '/projects/task.png', github: '#', live: '#' },
-    { title: 'Chat App', description: 'Real-time chat application.', tags: ['Node.js', 'Socket.io'], image: '/projects/chat.png', github: '#', live: '#' },
-    { title: 'Weather App', description: 'Weather forecasting app.', tags: ['React', 'API'], image: '/projects/weather.png', github: '#', live: '#' },
+    { title: 'Malaria Dashboard', description: 'Interactive malaria stats dashboard.', tags: ['React', 'Plotly'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'Task Manager', description: 'Manage daily tasks efficiently.', tags: ['React', 'Firebase'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'Chat App', description: 'Real-time chat application.', tags: ['Node.js', 'Socket.io'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'Weather App', description: 'Weather forecasting app.', tags: ['React', 'API'], image: '/clock.png', github: '#', live: '#' },
   ];
 
   const otherProjects: Project[] = Array.from({ length: 10 }, (_, i) => ({
     title: `Other Project ${i + 1}`,
     description: 'A small interesting project.',
     tags: ['Misc'],
-    image: '/projects/other.png',
+    image: '/clock.png',
     github: '#',
     live: '#',
   }));

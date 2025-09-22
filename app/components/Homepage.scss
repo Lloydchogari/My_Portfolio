@@ -54,7 +54,6 @@
 
     .animated-text {
       overflow: hidden;
-      border-right: 0.15em solid var(--text-color);
       white-space: nowrap;
       animation: typing 3s steps(40, end) forwards,
                   step-end infinite;
@@ -137,7 +136,7 @@
     display: flex;
     align-items: center;
 
-    a {
+    button {
       display: flex;
       align-items: center;
       gap: 0.5rem;
