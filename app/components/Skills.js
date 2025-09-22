@@ -107,7 +107,7 @@ hire_me_message()`
 
       {/* Main heading */}
       <h1 className="intro-heading">
-        Nice to meet you, I'm <span>Bro Elon</span>
+        Nice to meet you, I'm <span>LLOYD</span>
       </h1>
 
       {/* Code Animation - Left Side */}

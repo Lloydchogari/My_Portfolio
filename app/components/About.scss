@@ -1,0 +1,79 @@
+.profile-container {
+  .profile-circle {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem auto;
+    border: 4px solid #00b8c2;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: glowPulse 2s infinite alternate;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .intro-text {
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .animated-text {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      border-right: 0.15em solid var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 5s steps(60, end) forwards, blink 0.8s step-end infinite;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    a {
+      font-size: 2rem;
+      color: #00b8c2;
+      transition: all 0.3s;
+      animation: pulseBlink 2s infinite;
+
+      &:hover {
+        transform: scale(1.4);
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px #00b8c2; }
+  50% { box-shadow: 0 0 25px #00b8c2; }
+  100% { box-shadow: 0 0 10px #00b8c2; }
+}
+
+@keyframes pulseBlink {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
