@@ -7,6 +7,7 @@
   transition: background-color 0.5s, color 0.5s;
   overflow: hidden; 
   font-family: 'Fira Code', monospace; 
+  
 
   .spline-background {
     position: absolute;
@@ -199,7 +200,7 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     transition: background 0.5s, color 0.5s;
-
+    
     a {
       text-decoration: none;
       color: var(--text-color);
@@ -237,7 +238,7 @@ body.dark {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.2); // light mode background
+  background: rgba(255, 255, 255, 0.2); 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
   ul {

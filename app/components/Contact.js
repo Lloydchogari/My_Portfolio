@@ -49,12 +49,12 @@ const Contact = () => {
           <div className="contact-details">
             <div className="contact-item">
               <FaEnvelope className="contact-icon" />
-              <span>lloyd.developer@email.com</span>
+              <span>lloyddonnel44@gmail.com</span>
             </div>
             
             <div className="contact-item">
               <FaPhone className="contact-icon" />
-              <span>+263 123 456 789</span>
+              <span>+263 78 077 1627</span>
             </div>
             
             <div className="contact-item">
@@ -78,7 +78,7 @@ const Contact = () => {
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-link instagram">
                 <FaInstagram />
               </a>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="social-link github">
+              <a href="https://github.com/Lloydchogari" target="_blank" rel="noreferrer" className="social-link github">
                 <FaGithub />
               </a>
             </div>

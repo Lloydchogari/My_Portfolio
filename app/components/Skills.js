@@ -71,16 +71,16 @@ hire_me_message()`
     return () => clearTimeout(timeout);
   }, [currentCode, isTyping]);
 
-  // Languages data with modern icons
+  // Languages data with real image URLs
   const languages = [
-    { name: 'HTML5', icon: '🌐', color: '#e34c26', description: 'Semantic markup' },
-    { name: 'CSS3', icon: '🎨', color: '#1572b6', description: 'Modern styling' },
-    { name: 'JavaScript', icon: '⚡', color: '#f7df1e', description: 'Dynamic interactions' },
-    { name: 'Python', icon: '🐍', color: '#3776ab', description: 'Backend & AI' },
-    { name: 'React', icon: '⚛️', color: '#61dafb', description: 'UI Components' },
-    { name: 'Node.js', icon: '💚', color: '#68a063', description: 'Server runtime' },
-    { name: 'Next.js', icon: '▲', color: '#000000', description: 'Full-stack framework' },
-    { name: 'Tailwind', icon: '💨', color: '#06b6d4', description: 'Utility-first CSS' }
+    { name: 'HTML5', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', color: '#e34c26', description: 'Semantic markup' },
+    { name: 'CSS3', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', color: '#1572b6', description: 'Modern styling' },
+    { name: 'JavaScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: '#f7df1e', description: 'Dynamic interactions' },
+    { name: 'Python', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', color: '#3776ab', description: 'Backend & AI' },
+    { name: 'React', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', color: '#61dafb', description: 'UI Components' },
+    { name: 'Node.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', color: '#68a063', description: 'Server runtime' },
+    { name: 'Next.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', color: '#000000', description: 'Full-stack framework' },
+    { name: 'Tailwind', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg', color: '#06b6d4', description: 'Utility-first CSS' }
   ];
 
   // Jobs I can do
@@ -93,7 +93,7 @@ hire_me_message()`
 
   return (
     <div className="skills-page">
-      {/* 3D Robot at top right */}
+      {/* 3D Robot */}
       <div className="spline-scene">
         <iframe
           src="https://my.spline.design/genkubgreetingrobot-cu1aQHht65BGLoRxI2rnay8k/"
@@ -110,7 +110,7 @@ hire_me_message()`
         Nice to meet you, I'm <span>LLOYD</span>
       </h1>
 
-      {/* Code Animation - Left Side */}
+      {/* Code Animation */}
       <div className="code-animation">
         <div className="code-header">
           <div className="window-controls">
@@ -146,9 +146,11 @@ hire_me_message()`
             >
               <div className="card-inner">
                 <div className="card-front">
-                  <div className="lang-icon" style={{ color: lang.color }}>
-                    {lang.icon}
-                  </div>
+                  <img 
+                    src={lang.image} 
+                    alt={lang.name} 
+                    className="lang-image"
+                  />
                   <h3>{lang.name}</h3>
                 </div>
                 <div className="card-back">

@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import './Projects.scss';
 image: '/clock.png'
+image: '/gitpic.jpg'
+
 
 interface Project {
   title: string;
@@ -35,17 +37,13 @@ const Projects = () => {
   }, [darkMode]);
 
   const websiteProjects: Project[] = [
-    { title: 'FitSnap', description: 'A fitness progress sharing app.', tags: ['React', 'Tailwind'], image: '/clock.png', github: '#', live: '#' },
-    { title: 'Alumni Wall', description: 'Alumni share success stories.', tags: ['Python', 'Streamlit'], image: '/clock.png', github: '#', live: '#' },
-    { title: 'Portfolio Site', description: 'Personal developer portfolio.', tags: ['HTML', 'CSS', 'JS'], image: '/clock.png', github: '#', live: '#' },
-    { title: 'SPClub', description: 'Gym membership management.', tags: ['Next.js', 'SCSS'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'Checkin System', description: 'An attendance tracker checkin system.', tags: ['Next.Js', 'Tailwind'], image: '/clock.png', github: '#', live: 'https://attendance-tracker-frontend-eight.vercel.app/' },
+    { title: 'Git Commands App', description: 'An offline app for all github commands.', tags: ['Javascript', 'PWA'], image: '/clock.png', github: '#', live: 'https://git-commands-application.vercel.app/' },
   ];
 
   const applicationProjects: Project[] = [
-    { title: 'Malaria Dashboard', description: 'Interactive malaria stats dashboard.', tags: ['React', 'Plotly'], image: '/clock.png', github: '#', live: '#' },
-    { title: 'Task Manager', description: 'Manage daily tasks efficiently.', tags: ['React', 'Firebase'], image: '/clock.png', github: '#', live: '#' },
-    { title: 'Chat App', description: 'Real-time chat application.', tags: ['Node.js', 'Socket.io'], image: '/clock.png', github: '#', live: '#' },
-    { title: 'Weather App', description: 'Weather forecasting app.', tags: ['React', 'API'], image: '/clock.png', github: '#', live: '#' },
+    { title: 'CM Logistics', description: 'A website for CM Logistics shipping company.', tags: ['React', 'SCSS'], image: '/clock.png', github: '#', live: 'https://cm-logistics.vercel.app/' },
+    { title: 'Phone Number Detector', description: 'An offline app to detect the country of any phone number.', tags: ['HTML', 'Javascript'], image: '/clock.png', github: '#', live: 'https://countrynumberdetector.netlify.app/' },
   ];
 
   const otherProjects: Project[] = Array.from({ length: 10 }, (_, i) => ({
@@ -92,12 +90,10 @@ const Projects = () => {
       
       <div className="projects-category-container">
         <div className="category website-projects">
-          <h2>Website Projects</h2>
           {websiteProjects.map(renderProjectCard)}
         </div>
 
         <div className="category app-projects">
-          <h2>Application Projects</h2>
           {applicationProjects.map(renderProjectCard)}
         </div>
       </div>

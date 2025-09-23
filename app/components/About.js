@@ -8,7 +8,7 @@ const About = () => {
 
   // Programming languages for the 3D sphere
   const programmingLanguages = [
-    'JavaScript', 'React', 'Node.js', 'Python', 'TypeScript', 'HTML', 'CSS', 'MongoDB', 'SQL', 'Java', 'SCSS', 'PHP', 'NextJS', 'Typscript', 
+    'JavaScript', 'React', 'Node.js', 'Python', 'TypeScript', 'HTML', 'CSS', 'MongoDB', 'SQL', 'Java', 'SCSS', 'Tailwind', 'NextJS', 'Typscript', 
   ];
 
   // Generate floating code elements
@@ -82,7 +82,7 @@ const About = () => {
           
           <div className="about-text">
             <p className="paragraph-one">
-              I am a passionate Full Stack Developer with expertise in modern web technologies and a keen eye for creating exceptional user experiences. With years of experience in both frontend and backend development, I specialize in building scalable, responsive applications that solve real-world problems.
+              I'm LLOYD DONNEL CHOGARI, a passionate Full Stack Developer who is obsessed with modern web technologies and a has keen eye for creating exceptional user experiences. With over a year of experience in both backend and mostly frontend development, I specialize in building scalable, responsive applications that solve real-world problems.
             </p>
             
             <p className="paragraph-two">
@@ -126,21 +126,21 @@ const About = () => {
 
         {/* Social Icons */}
         <div className="social-section">
-          <h2 className="social-heading">Let's Work Together</h2>
+          <h2 className="social-heading">Let's Work Together!</h2>
           <div className="social-icons">
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-link linkedin">
               <FaLinkedin />
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="social-link github">
+            <a href="https://github.com/Lloydchogari" target="_blank" rel="noreferrer" className="social-link github">
               <FaGithub />
             </a>
-            <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" className="social-link whatsapp">
+            <a href="https://wa.me/780771627" target="_blank" rel="noreferrer" className="social-link whatsapp">
               <FaWhatsapp />
             </a>
             <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-link facebook">
               <FaFacebook />
             </a>
-            <a href="mailto:your@email.com" className="social-link email">
+            <a href="mailto:lloyddonnel44@gmail.com" className="social-link email">
               <FaEnvelope />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-link instagram">
