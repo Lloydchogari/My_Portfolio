@@ -51,16 +51,16 @@ const Projects = () => {
   ];
 
   const otherProjects: SimpleProject[] = [
-    { title: 'Weather Dashboard', github: 'https://github.com/username/weather-dashboard' },
-    { title: 'Task Manager Pro', github: 'https://github.com/username/task-manager-pro' },
-    { title: 'Recipe Finder', github: 'https://github.com/username/recipe-finder' },
-    { title: 'Budget Tracker', github: 'https://github.com/username/budget-tracker' },
-    { title: 'Password Generator', github: 'https://github.com/username/password-generator' },
-    { title: 'QR Code Generator', github: 'https://github.com/username/qr-code-generator' },
-    { title: 'Color Palette Tool', github: 'https://github.com/username/color-palette-tool' },
-    { title: 'Unit Converter', github: 'https://github.com/username/unit-converter' },
-    { title: 'Markdown Editor', github: 'https://github.com/username/markdown-editor' },
-    { title: 'Image Compressor', github: 'https://github.com/username/image-compressor' }
+    { title: 'SP Club Fitness', github: 'https://github.com/Lloydchogari/SPCLUB_Fitness.git' },
+    { title: 'Iphone Calculator', github: 'https://github.com/Lloydchogari/Calculator.git' },
+    { title: 'Color Pallete', github: 'https://github.com/Lloydchogari/Color_Pallete.git' },
+    { title: 'Superfet Farming', github: 'https://github.com/Lloydchogari/SuperFert_With_ReactJS.git' },
+    { title: 'Payslip Generator', github: 'https://github.com/Lloydchogari/Payslip_Generator.git' },
+    { title: 'Web Scrapper', github: 'https://github.com/Lloydchogari/Web-Scraper.git' },
+    { title: 'Flying Plane', github: 'https://github.com/Lloydchogari/Flying_Plane.git' },
+    { title: 'Typing Speed', github: 'https://github.com/Lloydchogari/TypingSpeed.git' },
+    { title: 'PC Dasboard', github: 'https://github.com/Lloydchogari/PC_Dashboard.git' },
+    { title: 'Sketch Drawing', github: 'https://github.com/Lloydchogari/Sketch-Drawing-.git' }
   ];
 
   const handleMobileClick = (title: string) => {
