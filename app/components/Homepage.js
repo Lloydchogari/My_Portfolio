@@ -39,12 +39,12 @@ const Homepage = ({ onShowAbout }) => {
         {/* Social Icons */}
         <div className="social-icons">
           <div className="icon-wrapper">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/lloyd-donnel-585256264/" target="_blank" rel="noreferrer">
               <FaLinkedin />
             </a>
           </div>
           <div className="icon-wrapper">
-            <a href="https://github.com" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Lloydchogari" target="_blank" rel="noreferrer">
               <FaGithub />
             </a>
           </div>

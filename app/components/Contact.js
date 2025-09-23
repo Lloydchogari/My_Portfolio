@@ -69,13 +69,13 @@ const Contact = () => {
               <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" className="social-link whatsapp">
                 <FaWhatsapp />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-link facebook">
+              <a href="https://www.facebook.com/lloyd.donnel" target="_blank" rel="noreferrer" className="social-link facebook">
                 <FaFacebook />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-link linkedin">
+              <a href="https://www.linkedin.com/in/lloyd-donnel-585256264/" target="_blank" rel="noreferrer" className="social-link linkedin">
                 <FaLinkedin />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-link instagram">
+              <a href="https://www.instagram.com/lloyd_donnel/" target="_blank" rel="noreferrer" className="social-link instagram">
                 <FaInstagram />
               </a>
               <a href="https://github.com/Lloydchogari" target="_blank" rel="noreferrer" className="social-link github">

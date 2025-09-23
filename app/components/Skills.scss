@@ -5,8 +5,9 @@
       width: 350px;
       height: 280px;
       bottom: 1rem;
-      left: 1rem;
+      right: 1rem;
     }
+
 
     .languages-section {
       .languages-grid {
@@ -29,10 +30,7 @@
     overflow-y: auto;
 
     .spline-scene {
-      width: 180px;
-      height: 180px;
-      top: 1rem;
-      right: 1rem;
+      display: none !important;
     }
 
     .intro-heading {
@@ -42,13 +40,15 @@
     }
 
     .code-animation {
-      position: relative;
-      width: 100%;
+      position: fixed;           /* keep it fixed to the viewport */
+      bottom: 1rem;              /* stick to bottom */
+      left: 50%;                 /* centre horizontally */
+      transform: translateX(-50%); /* true centring */
+      width: 90%;                /* or max-width:350px; */
       max-width: 350px;
-      height: 250px;
-      margin: 2rem auto 1rem;
-      bottom: auto;
-      left: auto;
+      height: 220px;
+      margin: 0;                 /* remove auto margins */
+      z-index: 20;  
     }
 
     .languages-section {
@@ -129,7 +129,7 @@
 
     .code-animation {
       max-width: 320px;
-      height: 220px;
+      height: 200px;
       
       .code-content {
         padding: 1rem;
@@ -220,7 +220,7 @@
   --card-bg: #000000;
   --border-color: #334155;
   --shadow-color: rgba(0, 0, 0, 0.3);
-  --code-bg: #1e1e2e;
+  --code-bg: #000000;
   --particle-color: #475569;
 }
 
@@ -241,8 +241,8 @@
   // 3D Robot at top right
   .spline-scene {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 5%;
+    right: 5%;
     width: 300px;
     height: 300px;
     z-index: 10;
@@ -258,6 +258,11 @@
     z-index: 5;
     position: relative;
     max-width: calc(100% - 320px);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 1px #3a6466, 0 0 25px #00b8c2;
     
 
     span {
@@ -265,6 +270,10 @@
       background-size: 200% 200%;
       font-size: 5rem;
       animation: gradientShift 3s ease-in-out infinite;
+    /* reset gradient effect */
+      background: none;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: initial;
     }
   }
 
@@ -272,10 +281,11 @@
   .code-animation {
     position: fixed;
     bottom: 1rem;
-    right: 3rem;
+    margin-left: 75rem;
+    top: 55%;
     width: 420px;
     height: 300px;
-    border-radius: 12px;
+    border-radius: 30px;
     overflow: hidden;
     z-index: 8;
     animation: slideInFromLeft 1s ease 2s both;
@@ -284,12 +294,13 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      padding: 0.8rem 1rem;
+      padding: 0.8rem 6.3rem;
       background: linear-gradient(135deg, #5a5858, #c1d6d5);
       color: rgb(255, 255, 255);
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 600;
       font-family: var(--primary-font);
+      
 
       .window-controls {
         display: flex;
@@ -364,16 +375,19 @@
         perspective: 1000px;
         animation: cardSlideIn 0.8s ease forwards;
         opacity: 0;
+        border-radius: 12px;
 
         .card-inner {
           position: relative;
           width: 100%;
           height: 100%;
+          border-radius: 12px;
           text-align: center;
           transition: transform 0.8s;
           transform-style: preserve-3d;
           cursor: pointer;
           object-fit: cover;
+          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9);
 
           &:hover {
             transform: rotateY(180deg);
