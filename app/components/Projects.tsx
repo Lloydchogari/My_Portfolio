@@ -1,8 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './Projects.scss';
-image: '/clock.png'
-image: '/gitpic.jpg'
+import Navbar from '../components/Navbar'; 
 
 
 interface Project {
@@ -12,6 +11,11 @@ interface Project {
   image: string;
   github: string;
   live: string;
+}
+
+interface SimpleProject {
+  title: string;
+  github: string;
 }
 
 const Projects = () => {
@@ -37,23 +41,27 @@ const Projects = () => {
   }, [darkMode]);
 
   const websiteProjects: Project[] = [
-    { title: 'Checkin System', description: 'An attendance tracker checkin system.', tags: ['Next.Js', 'Tailwind'], image: '/clock.png', github: 'https://github.com/samzana/attendance-tracker-frontend.git', live: 'https://attendance-tracker-frontend-eight.vercel.app/' },
-    { title: 'Git Commands App', description: 'An offline app for all github commands.', tags: ['Javascript', 'PWA'], image: '/clock.png', github: 'https://github.com/Lloydchogari/Git_Commands_Application.git', live: 'https://git-commands-application.vercel.app/' },
+    { title: 'Checkin System', description: 'An attendance tracker checkin system.', tags: ['Next.Js', 'Tailwind'], image: '/code.jpg', github: 'https://github.com/samzana/attendance-tracker-frontend.git', live: 'https://attendance-tracker-frontend-eight.vercel.app/' },
+    { title: 'Git Commands App', description: 'An offline app for all github commands.', tags: ['Javascript', 'PWA'], image: '/code.jpg', github: 'https://github.com/Lloydchogari/Git_Commands_Application.git', live: 'https://git-commands-application.vercel.app/' },
   ];
 
   const applicationProjects: Project[] = [
-    { title: 'CM Logistics', description: 'A website for CM Logistics shipping company.', tags: ['React', 'SCSS'], image: '/clock.png', github: 'https://github.com/Lloydchogari/CM-Logistics.git', live: 'https://cm-logistics.vercel.app/' },
-    { title: 'Phone Number Detector', description: 'An offline app to detect the country of any phone number.', tags: ['HTML', 'Javascript'], image: '/clock.png', github: 'https://github.com/Lloydchogari/PhoneNumberCountryDetector.git', live: 'https://countrynumberdetector.netlify.app/' },
+    { title: 'CM Logistics', description: 'A website for CM Logistics shipping company.', tags: ['React', 'SCSS'], image: '/code.jpg', github: 'https://github.com/Lloydchogari/CM-Logistics.git', live: 'https://cm-logistics.vercel.app/' },
+    { title: 'Phone Number Detector', description: 'An offline app to detect the country of any phone number.', tags: ['HTML', 'Javascript'], image: '/code.jpg', github: 'https://github.com/Lloydchogari/PhoneNumberCountryDetector.git', live: 'https://countrynumberdetector.netlify.app/' },
   ];
 
-  const otherProjects: Project[] = Array.from({ length: 10 }, (_, i) => ({
-    title: `Other Project ${i + 1}`,
-    description: 'A small interesting project.',
-    tags: ['Misc'],
-    image: '/clock.png',
-    github: '#',
-    live: '#',
-  }));
+  const otherProjects: SimpleProject[] = [
+    { title: 'Weather Dashboard', github: 'https://github.com/username/weather-dashboard' },
+    { title: 'Task Manager Pro', github: 'https://github.com/username/task-manager-pro' },
+    { title: 'Recipe Finder', github: 'https://github.com/username/recipe-finder' },
+    { title: 'Budget Tracker', github: 'https://github.com/username/budget-tracker' },
+    { title: 'Password Generator', github: 'https://github.com/username/password-generator' },
+    { title: 'QR Code Generator', github: 'https://github.com/username/qr-code-generator' },
+    { title: 'Color Palette Tool', github: 'https://github.com/username/color-palette-tool' },
+    { title: 'Unit Converter', github: 'https://github.com/username/unit-converter' },
+    { title: 'Markdown Editor', github: 'https://github.com/username/markdown-editor' },
+    { title: 'Image Compressor', github: 'https://github.com/username/image-compressor' }
+  ];
 
   const handleMobileClick = (title: string) => {
     setActiveMobile(activeMobile === title ? null : title);
@@ -77,8 +85,8 @@ const Projects = () => {
           ))}
         </div>
         <div className="project-links">
-          <a href={project.github} target="_blank">GitHub</a>
-          <a href={project.live} target="_blank">Live</a>
+          <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={project.live} target="_blank" rel="noopener noreferrer">Live</a>
         </div>
       </div>
     </div>
@@ -86,22 +94,33 @@ const Projects = () => {
 
   return (
     <div className="projects-page">
+         {/* Fixed Navbar */}
+         <Navbar/>
       <h1 className="intro-heading">My Projects</h1>
       
       <div className="projects-category-container">
         <div className="category website-projects">
+          <h2>Websites</h2>
           {websiteProjects.map(renderProjectCard)}
         </div>
 
         <div className="category app-projects">
+          <h2>Applications</h2>
           {applicationProjects.map(renderProjectCard)}
         </div>
       </div>
 
-      <div className="category others-projects">
+      <div className="others-projects">
         <h1>Others</h1>
-        <div className="others-grid">
-          {otherProjects.map(renderProjectCard)}
+        <div className="simple-project-list">
+          {otherProjects.map(project => (
+            <div key={project.title} className="simple-project-item">
+              <span className="project-name">{project.title}</span>
+              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>

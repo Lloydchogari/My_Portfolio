@@ -17,7 +17,6 @@ const Homepage = ({ onShowAbout }) => {
       {/* 3D Robot */}
       <div className="spline-background">
         <iframe
-          src="https://my.spline.design/genkubgreetingrobot-cu1aQHht65BGLoRxI2rnay8k/"
           frameBorder="0"
           width="100%"
           height="90%"

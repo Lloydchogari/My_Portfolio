@@ -447,3 +447,80 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .contact-page {
+    padding: 1rem !important;
+  }
+  .contact-container {
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .contact-container {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 0 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 0.5rem !important;
+  }
+  .contact-container {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 1rem; /* equal padding left & right */
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr !important;
+    margin: 0 auto !important;     /* centers entire container */
+    max-width: 100% !important;    
+    padding: 0 1rem !important;    /* equal space from edges */
+    justify-items: center !important; 
+    text-align: center !important;
+  }
+
+  .contact-info,
+  .form-section {
+    width: 100%;
+    max-width: 600px;              /* keeps a neat max width */
+    margin: 0 auto;                /* centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Ensure social icons row is centered */
+  .contact-info .social-icons {
+    justify-content: center !important;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  /* Form also centered */
+  .form-section .form-container {
+    width: 100%;
+    max-width: 600px; /* consistent width */
+  
+    margin-right: 3rem;
+    text-align: center;
+  }
+}

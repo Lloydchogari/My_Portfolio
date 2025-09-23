@@ -1,7 +1,22 @@
+.flip-container, .flip-box {
+  min-height: 100vh;
+  height: auto;
+}
+.face {
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto; // enable scroll inside if face overflows.
+}
+
+
+
+
+
+
 .flip-container {
   perspective: 1200px;
   width: 100%;
-  height: 100vh;
+  height: auto;
   position: relative;
 }
 
@@ -15,9 +30,23 @@
 .face {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: auto;
   backface-visibility: hidden;
+    min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
 }
+
+.skills-face {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  backface-visibility: hidden;
+    min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+}
+
 
 /* Position each face in 3D cube */
 .home-face {
@@ -123,4 +152,23 @@
 /* Ensure About component in overlay has proper styling */
 .about-overlay .about-page {
   background: transparent; /* Let the overlay background show through */
+}
+
+@media (max-width: 768px) {
+  .flip-container,
+  .flip-box,
+  .face {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  .face {
+    position: relative !important; /* So it flows */
+    overflow-y: auto !important;
+    // If possible, remove 3D transforms for mobile to simplify and enhance UX
+    transform: none !important;
+    backface-visibility: visible !important;
+  }
+  .flip-box {
+    transform: none !important;
+  }
 }

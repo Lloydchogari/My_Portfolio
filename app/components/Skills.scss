@@ -1,215 +1,12 @@
-// Mobile Responsiveness
-@media (max-width: 1024px) {
-  .skills-page {
-    overflow-y: auto;
-    
-    .code-animation {
-      width: 350px;
-      height: 280px;
-      bottom: 1rem;
-      right: 1rem;
-    }
-
-
-    .languages-section {
-      .languages-grid {
-        grid-template-columns: repeat(2, minmax(160px, 1fr));
-        gap: 1.2rem;
-        
-        .language-card {
-          height: 120px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-page {
-    padding: 1rem;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-
-    .spline-scene {
-      display: none !important;
-    }
-
-    .intro-heading {
-      font-size: clamp(1.8rem, 6vw, 2.5rem);
-      max-width: calc(100% - 200px);
-      margin-bottom: 1.5rem;
-    }
-
-    .code-animation {
-      position: fixed;           /* keep it fixed to the viewport */
-      bottom: 1rem;              /* stick to bottom */
-      left: 50%;                 /* centre horizontally */
-      transform: translateX(-50%); /* true centring */
-      width: 90%;                /* or max-width:350px; */
-      max-width: 350px;
-      height: 220px;
-      margin: 0;                 /* remove auto margins */
-      z-index: 20;  
-    }
-
-    .languages-section {
-      margin: 1.5rem 0;
-
-      .languages-grid {
-        grid-template-columns: repeat(2, minmax(140px, 1fr));
-        gap: 1rem;
-
-        .language-card {
-          height: 110px;
-
-          .card-inner {
-            .card-front,
-            .card-back {
-              padding: 0.8rem;
-
-              .lang-icon {
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-              }
-
-              h3 {
-                font-size: 1.1rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .jobs-section {
-      margin: 2rem 0;
-
-      .jobs-container {
-        h2 {
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .jobs-unified-card {
-          padding: 1.5rem;
-
-          .job-item {
-            margin: 1rem 0;
-
-            .job-content {
-              h3 {
-                font-size: 1.2rem;
-              }
-
-              p {
-                font-size: 0.9rem;
-              }
-            }
-
-            .job-divider {
-              margin: 1.5rem 0.5rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .skills-page {
-    .spline-scene {
-      width: 140px;
-      height: 140px;
-    }
-
-    .intro-heading {
-      max-width: calc(100% - 150px);
-      font-size: clamp(1.5rem, 7vw, 2rem);
-    }
-
-    .code-animation {
-      max-width: 320px;
-      height: 200px;
-      
-      .code-content {
-        padding: 1rem;
-        
-        pre {
-          font-size: 0.8rem;
-          line-height: 1.6;
-        }
-      }
-    }
-
-    .languages-section {
-      .languages-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-        
-        .language-card {
-          height: 100px;
-          
-          .card-inner {
-            .card-front {
-              .lang-icon {
-                font-size: 1.8rem;
-                margin-bottom: 0.3rem;
-              }
-              
-              h3 {
-                font-size: 0.8rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .jobs-section {
-      .jobs-container {
-        h2 {
-          font-size: 1.3rem;
-          margin-bottom: 1rem;
-        }
-        
-        .jobs-unified-card {
-          padding: 1rem;
-          
-          .job-item {
-            margin: 0.8rem 0;
-            
-            .job-content {
-              h3 {
-                font-size: 1rem;
-              }
-              
-              p {
-                font-size: 0.8rem;
-                line-height: 1.4;
-              }
-            }
-            
-            .job-divider {
-              margin: 1rem 0.3rem;
-              height: 1.5px;
-            }
-          }
-        }
-      }
-    }
-  }
-} // Enhanced font imports for better readability
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
-// CSS Variables for theming
+// CSS Variables
 :root {
   --bg-color: #ffffff;
   --text-color: #1a1a1a;
   --card-bg: #ffffff;
   --border-color: #e2e8f0;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0,0,0,0.1);
   --accent-color: #00e0ff;
   --code-bg: #f1f5f9;
   --particle-color: #cbd5e1;
@@ -221,26 +18,36 @@
   --text-color: #ffffff;
   --card-bg: #000000;
   --border-color: #334155;
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color: rgba(0,0,0,0.3);
   --code-bg: #000000;
   --particle-color: #475569;
+}
+
+// Base Layout
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--primary-font);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .skills-page {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  padding: 2rem;
+  height: auto;
   background: var(--bg-color);
   color: var(--text-color);
   transition: all 0.3s ease;
-  font-family: var(--primary-font);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; 
-  overflow-y: auto;  
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  // 3D Robot at top right
   .spline-scene {
     position: fixed;
     top: 5%;
@@ -251,7 +58,6 @@
     animation: fadeSlideIn 2s ease forwards;
   }
 
-  // Main heading
   .intro-heading {
     font-size: 3rem;
     font-weight: 800;
@@ -260,31 +66,24 @@
     z-index: 5;
     position: relative;
     max-width: calc(100% - 320px);
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, var(--accent-color), var(--text-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     text-shadow: 0 0 1px #3a6466, 0 0 25px #00b8c2;
-    
-
     span {
       color: red;
-      background-size: 200% 200%;
       font-size: 5rem;
-      animation: gradientShift 3s ease-in-out infinite;
-    /* reset gradient effect */
       background: none;
       -webkit-background-clip: initial;
       -webkit-text-fill-color: initial;
     }
   }
 
-  // Code Animation - Left Side
   .code-animation {
     position: fixed;
     bottom: 1rem;
-    margin-left: 75rem;
-    top: 55%;
+    right: 1rem;
     width: 420px;
     height: 300px;
     border-radius: 30px;
@@ -298,11 +97,9 @@
       gap: 1rem;
       padding: 0.8rem 6.3rem;
       background: linear-gradient(135deg, #5a5858, #c1d6d5);
-      color: rgb(255, 255, 255);
+      color: #fff;
       font-size: 1.5rem;
       font-weight: 600;
-      font-family: var(--primary-font);
-      
 
       .window-controls {
         display: flex;
@@ -312,7 +109,6 @@
           width: 12px;
           height: 12px;
           border-radius: 50%;
-          
           &.red { background: #ff3126; }
           &.yellow { background: #f8b118; }
           &.green { background: #0fb62b; }
@@ -320,7 +116,6 @@
       }
 
       .file-name {
-        font-family: var(--primary-font);
         font-weight: 500;
       }
     }
@@ -333,30 +128,17 @@
 
       pre {
         margin: 0;
-        font-family: var(--primary-font);
         font-size: 0.9rem;
         line-height: 1.8;
         color: #eee;
-        font-weight: 400;
-
-        .javascript {
-          color: #ffe100;
-        }
-
-        .python {
-          color: #4584b6;
-        }
-
         .cursor {
           animation: blink 1s infinite;
           color: var(--accent-color);
-          font-weight: bold;
         }
       }
     }
   }
 
-  // Languages Section
   .languages-section {
     margin: 2rem 7rem;
     display: flex;
@@ -367,10 +149,9 @@
 
     .languages-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      grid-template-columns: repeat(4,minmax(180px,1fr));
       gap: 1.5rem;
       max-width: 900px;
-      width: 100%;
 
       .language-card {
         height: 140px;
@@ -386,10 +167,8 @@
           border-radius: 12px;
           text-align: center;
           transition: transform 0.8s;
-          transform-style: preserve-3d;
           cursor: pointer;
-          object-fit: cover;
-          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 15px 50px rgba(0,0,0,0.9);
 
           &:hover {
             transform: rotateY(180deg);
@@ -407,68 +186,49 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            box-shadow: 0 8px 25px var(--shadow-color);
-            transition: all 0.3s ease;
-            font-family: var(--primary-font);
-          }
-
-          .card-front {
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
 
             .lang-image {
-            width: 60px;          // or 40–80px depending on your card size
-            height: 60px;
-            object-fit: contain;  // keeps the SVG aspect ratio inside the box
-            margin-bottom: 0.8rem;
-            display: block;
-          }
-
-            &:hover {
-              border-color: var(--hover-color);
-              box-shadow: 0 12px 30px var(--shadow-color);
-            }
-
-            .lang-image {
-              font-size: 2.5rem;
+              width: 60px;
+              height: 60px;
+              object-fit: contain;
               margin-bottom: 0.8rem;
+              font-size: 2.5rem;
             }
-
             h3 {
               font-size: 1.1rem;
               font-weight: 600;
-              margin: 0;
               color: var(--text-color);
-              font-family: var(--primary-font);
+              margin: 0;
             }
           }
-
+          .card-front {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            &:hover {
+              border-color: var(--accent-color);
+              box-shadow: 0 12px 30px var(--shadow-color);
+            }
+          }
           .card-back {
-            background: linear-gradient(135deg, var(--card-bg), var(--hover-color, #4f46e5));
+            background: linear-gradient(135deg, var(--card-bg), var(--accent-color));
             transform: rotateY(180deg);
-            border: 2px solid var(--hover-color, #4f46e5);
-
+            border: 2px solid var(--accent-color);
             p {
-              margin-bottom: 1rem;
               color: white;
               font-weight: 500;
-              font-family: var(--primary-font);
-              font-size: 0.9rem;
+              margin-bottom: 1rem;
             }
-
             .expertise-level {
               width: 80%;
               height: 4px;
-              background: rgba(255, 255, 255, 0.3);
+              background: rgba(255,255,255,0.3);
               border-radius: 2px;
               overflow: hidden;
-
               .level-bar {
                 height: 100%;
                 width: 85%;
                 background: white;
                 border-radius: 2px;
-                animation: fillBar 2s ease-in-out;
               }
             }
           }
@@ -477,7 +237,6 @@
     }
   }
 
-  // Jobs Section
   .jobs-section {
     margin-top: 2rem;
     margin-bottom: 3rem;
@@ -490,7 +249,6 @@
       max-width: 1000px;
       width: 100%;
       text-align: center;
-
       h2 {
         font-size: 2rem;
         font-weight: 700;
@@ -498,9 +256,6 @@
         background: linear-gradient(45deg, var(--text-color), var(--accent-color));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-family: var(--primary-font);
-        
       }
 
       .jobs-unified-card {
@@ -513,35 +268,24 @@
         opacity: 0;
 
         .job-item {
-          position: relative;
           margin: 1.5rem 0;
-
-          &:first-child {
-            margin-top: 0;
-          }
-
-          &:last-child {
-            margin-bottom: 0;
-          }
+          &:first-child { margin-top: 0; }
+          &:last-child { margin-bottom: 0; }
 
           .job-content {
             text-align: left;
             padding: 0 1rem;
-
             h3 {
               font-size: 1.4rem;
               font-weight: 600;
               color: var(--text-color);
               margin-bottom: 0.8rem;
-              font-family: var(--primary-font);
             }
-
             p {
               color: var(--text-color);
               opacity: 0.8;
               line-height: 1.6;
               font-size: 1rem;
-              font-family: var(--primary-font);
               font-weight: 400;
             }
           }
@@ -551,14 +295,13 @@
             background: linear-gradient(90deg, transparent, #ff4444, transparent);
             margin: 2rem 1rem;
             border-radius: 1px;
-            box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+            box-shadow: 0 0 10px rgba(255,68,68,0.3);
           }
         }
       }
     }
   }
 
-  // Floating Particles
   .particles {
     position: fixed;
     top: 0;
@@ -567,349 +310,211 @@
     height: 100%;
     pointer-events: none;
     z-index: 1;
-
     .particle {
       position: absolute;
       width: 3px;
       height: 3px;
       background: var(--particle-color);
       border-radius: 50%;
-      animation: floatUp linear infinite;
       opacity: 0.7;
     }
-
     .explosive-particle {
       position: absolute;
       width: 6px;
       height: 6px;
-      background: radial-gradient(circle, #ff6b6b, #4ecdc4, #45b7d1);
+      background: radial-gradient(circle,#ff6b6b,#4ecdc4,#45b7d1);
       border-radius: 50%;
-      animation: explode linear infinite;
       opacity: 0;
-
-      &::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: inherit;
-        border-radius: 50%;
-        animation: sparkle 0.3s ease-out;
-      }
     }
   }
 }
 
-// Animations
+// --- Animations ---
 @keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(30px);}
+  100% { opacity: 1; transform: translateY(0);}
 }
-
 @keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0% { opacity: 0; transform: translateX(-100px);}
+  100% { opacity: 1; transform: translateX(0);}
 }
-
-@keyframes explode {
-  0% {
-    opacity: 0;
-    transform: scale(0) rotate(0deg);
-  }
-  20% {
-    opacity: 1;
-    transform: scale(1) rotate(90deg);
-  }
-  40% {
-    opacity: 1;
-    transform: scale(1.5) rotate(180deg);
-  }
-  60% {
-    opacity: 0.8;
-    transform: scale(2) rotate(270deg);
-  }
-  80% {
-    opacity: 0.3;
-    transform: scale(3) rotate(360deg);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(4) rotate(450deg);
-  }
-}
-
-@keyframes sparkle {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.8);
-  }
-  50% {
-    box-shadow: 0 0 20px 10px rgba(255, 107, 107, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 40px 20px rgba(255, 107, 107, 0);
-  }
-}
-
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(50px);}
+  100% { opacity: 1; transform: translateY(0);}
 }
-
 @keyframes cardSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) rotateX(10deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotateX(0deg);
-  }
+  0% { opacity: 0; transform: translateY(30px) rotateX(10deg);}
+  100% { opacity: 1; transform: translateY(0) rotateX(0deg);}
 }
-
 @keyframes jobCardSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  0% { opacity: 0; transform: translateY(40px) scale(0.9);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
 }
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
 
-@keyframes fillBar {
-  0% { width: 0%; }
-  100% { width: 85%; }
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-// Mobile Responsiveness
+// --- MOBILE RESPONSIVENESS FIXES ---
 @media (max-width: 1024px) {
   .skills-page {
+    padding: 1rem !important;
     .code-animation {
-      width: 320px;
-      height: 240px;
-      bottom: 1rem;
-      right: 1rem;
+      width: 320px !important; height: 240px !important;
     }
-
-    .languages-section {
-      .languages-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1.5rem;
-      }
+    .languages-section .languages-grid {
+      grid-template-columns: repeat(2, minmax(160px,1fr)) !important;
+      gap: 1.2rem !important;
+      .language-card { height: 120px !important; }
     }
   }
 }
 
 @media (max-width: 768px) {
+  html, body {
+    height: auto !important; min-height: 100vh !important; overflow-y: auto !important;
+  }
   .skills-page {
-    padding: 1rem;
-
-    .spline-scene {
-      width: 200px;
-      height: 200px;
-      top: 1rem;
-      right: 1rem;
-    }
-
-    .intro-heading {
-      font-size: clamp(2rem, 6vw, 2.8rem);
-      max-width: calc(100% - 220px);
-      margin-bottom: 2rem;
-    }
-
-    .code-animation {
-      position: relative;
-      width: 100%;
-      max-width: 350px;
-      height: 200px;
-      margin: 2rem auto;
-      bottom: auto;
-      right: auto;
-    }
-
-    .languages-section {
-      margin: 2rem 0;
-
-      .languages-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
-
-        .language-card {
-          height: 140px;
-
-          .card-inner {
-            .card-front,
-            .card-back {
-              padding: 1rem;
-
-              .lang-icon {
-                font-size: 2.5rem;
-              }
-
-              h3 {
-                font-size: 1.1rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .jobs-section {
-      margin: 3rem 0;
-
-      .jobs-container {
-        h2 {
-          font-size: 2rem;
-          margin-bottom: 2rem;
-        }
-
-        .jobs-grid {
-          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-          gap: 1rem;
-
-          .job-card {
-            padding: 1.5rem;
-
-            .job-icon {
-              font-size: 2.5rem;
-            }
-
-            h3 {
-              font-size: 1.1rem;
-            }
-
-            p {
-              font-size: 0.9rem;
-            }
-          }
-        }
-      }
-    }
+    height: auto !important; min-height: 100vh !important;
+    overflow-y: auto !important; overflow-x: hidden !important; padding: 1rem !important;
+  }
+  // These overrides force previously fixed/absolute elements to flow in mobile
+  .skills-page .code-animation,
+  .skills-page .spline-scene,
+  .skills-page .particles,
+  .skills-page .particles .particle,
+  .skills-page .particles .explosive-particle {
+    position: relative !important; top: auto !important; right: auto !important;
+    bottom: auto !important; left: auto !important; margin: 0 !important; z-index: auto !important;
+  }
+  .skills-page .spline-scene { display: none !important; }
+  .languages-section { margin: 1.5rem 0 !important; }
+  .languages-section .languages-grid {
+    grid-template-columns: repeat(2, minmax(140px,1fr)) !important;
+    gap: 1rem !important;
+    .language-card { height: 110px !important; }
+  }
+  .jobs-section { margin: 2rem 0 !important; }
+  .jobs-section .jobs-container h2 {
+    font-size: 1.5rem !important; margin-bottom: 1.5rem !important;
+  }
+  .jobs-section .jobs-container .jobs-unified-card .job-item {
+    margin: 1rem 0 !important;
+    .job-content h3 { font-size: 1.2rem !important; }
+    .job-content p { font-size: 0.9rem !important; }
+    .job-divider { margin: 1.5rem 0.5rem !important; }
   }
 }
 
 @media (max-width: 480px) {
+  .skills-page { padding: 0.5rem !important; }
+  .languages-section .languages-grid {
+    grid-template-columns: repeat(2, 1fr) !important; gap: 0.8rem !important;
+    .language-card { height: 100px !important; }
+  }
+  .jobs-section .jobs-container h2 { font-size: 1.3rem !important; }
+  .jobs-section .jobs-container .jobs-unified-card .job-item .job-content h3 { font-size: 1rem !important; }
+  .jobs-section .jobs-container .jobs-unified-card .job-item .job-content p { font-size: 0.8rem !important; line-height: 1.4 !important; }
+}
+
+
+
+@media (max-width: 768px) {
+  /* Keep base settings */
+  html, body {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
   .skills-page {
-    .spline-scene {
-      width: 150px;
-      height: 150px;
-    }
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    padding: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;  /* 🟢 force contents to center */
+    text-align: center !important;   /* 🟢 texts centered */
+  }
 
-    .intro-heading {
-      max-width: calc(100% - 160px);
-      font-size: clamp(1.5rem, 7vw, 2.2rem);
-    }
+  /* 🟢 Make heading centered with smaller size */
+  .skills-page .intro-heading {
+    font-size: 2rem !important;
+    max-width: 100% !important;
+    margin: 1.5rem 0 !important;
+    text-align: center !important;
+  }
 
-    .code-animation {
-      max-width: 300px;
-      height: 180px;
-      
-      .code-content {
-        padding: 0.8rem;
-        
-        pre {
-          font-size: 0.75rem;
-        }
-      }
-    }
+  /* 🟢 Move code animation into flow & center */
+  .skills-page .code-animation {
+    position: relative !important;
+    margin: 1.5rem auto !important; /* auto centers horizontally */
+    width: 95% !important;
+    max-width: 380px !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: left !important;
+    
+  }
 
-    .languages-section {
-      .languages-grid {
-        grid-template-columns: repeat(2, 1fr);
-        
-        .language-card {
-          height: 120px;
-          
-          .card-inner {
-            .card-front {
-              .lang-icon {
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-              }
-              
-              h3 {
-                font-size: 0.9rem;
-              }
-            }
-          }
-        }
-      }
-    }
+  /* 🟢 Languages section centered */
+  .languages-section {
+    margin: 1.5rem auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+}
 
-    .jobs-section {
-      .jobs-container {
-        h2 {
-          font-size: 1.5rem;
-        }
-        
-        .jobs-grid {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-          
-          .job-card {
-            padding: 1rem;
-            
-            .job-icon {
-              font-size: 2rem;
-            }
-            
-            h3 {
-              font-size: 1rem;
-            }
-            
-            p {
-              font-size: 0.8rem;
-            }
-          }
-        }
-      }
-    }
+/* Desktop fix: allow natural scroll */
+@media (min-width: 1025px) {
+  .skills-page {
+    min-height: 100vh;   /* page can extend */
+    height: auto;        /* remove hard vh lock */
+    overflow-y: visible; /* let page scroll normally */
+  }
+}
+
+
+/* last-resort mobile scrolling fix */
+@media (max-width: 768px) {
+  html, body {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  .skills-page {
+    display: block !important;       /* stop flex so it can grow */
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding-bottom: 3rem !important; /* give extra breathing room */
+  }
+
+  /* force fixed items into normal flow on mobile */
+  .skills-page .spline-scene,
+  .skills-page .code-animation,
+  .skills-page .particles {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin: 1rem auto !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    height: auto !important;
+    z-index: auto !important;
+  }
+
+  /* optional: hide the particles background entirely on mobile */
+  .skills-page .particles {
+    display: none !important;
   }
 }

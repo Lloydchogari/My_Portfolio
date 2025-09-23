@@ -1,6 +1,3 @@
-
-
-
 .homepage {
   position: relative;
   width: 100%;
@@ -8,9 +5,8 @@
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.5s, color 0.5s;
-  overflow: hidden; 
-  font-family: 'Fira Code', monospace; 
-  
+  overflow: hidden;
+  font-family: 'Fira Code', monospace;
 
   .spline-background {
     position: absolute;
@@ -18,7 +14,7 @@
     height: 100%;
   }
 
-    .robot-container {
+  .robot-container {
     position: absolute;
     right: 5%;
     top: 50%;
@@ -29,6 +25,10 @@
     @media (max-width: 768px) {
       width: 100vw;
       height: 40vh;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      transform: none;
     }
   }
 
@@ -36,78 +36,69 @@
     position: absolute;
     left: 5%;
     bottom: 35%;
-    max-width: 1900px;
-    z-index: 200;    
+    max-width: 90%; /* prevent overflowing */
+    z-index: 200;
 
     h1 {
       margin: 0;
-      font-size: 4rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
       font-weight: 600;
+
       span {
         color: red;
-        font-size: 5rem;
+        font-size: clamp(1.8rem, 5vw, 3rem);
       }
+    }
 
+    h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+      font-weight: 600;
 
-      @media (max-width: 768px) {
-        overflow: hidden;
-        bottom: 25%;
-        font-size: 2.5rem;
+      span {
+        text-shadow: 0 0 1px #3a6466, 0 0 25px #00b8c2;
+        color: #3a6466;
       }
     }
 
     .animated-text {
       overflow: hidden;
-      white-space: nowrap;
+      white-space: normal; /* now wraps on mobile */
+      word-wrap: break-word;
       animation: typing 3s steps(40, end) forwards,
-                  step-end infinite;
+                 step-end infinite;
     }
 
     @keyframes typing {
       from { width: 0; }
       to { width: 100%; }
     }
+
     @keyframes blink {
       50% { border-color: transparent; }
     }
 
     .social-icons {
-      margin-top: 4rem;
-      margin-left: 4rem;
+      margin-top: 2.2rem;
+      margin-left: 0;
       display: flex;
-      gap: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: flex-start;
 
       .icon-wrapper {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: 30px;
 
-        // red fading horizontal lines
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          width: 50px;
-          height: 2px;
-          background: linear-gradient(
-            to left,
-            rgba(255,0,0,0) 0%,
-            rgba(255,0,0,1) 100%
-          );
-        }
-        &::after {
-          background: linear-gradient(
-            to right,
-            rgba(255,0,0,0) 0%,
-            rgba(255,0,0,1) 100%
-          );
-        }
+
         &::before {
           right: 100%;
           margin-right: 8px;
         }
+
         &::after {
           left: 100%;
           margin-left: 8px;
@@ -117,118 +108,109 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 80px;
-          height: 50px;
+          width: 60px;
+          height: 60px;
           border-radius: 50%;
           transition: all 0.3s;
-          color: #00b8c2; 
-          font-size: 3rem;
+          color: #00b8c2;
+          font-size: 2rem;
 
           &:hover {
-            transform: scale(1.7);
+            transform: scale(1.5);
           }
         }
       }
     }
-    .social-icons {
-  margin-top: 4rem;
-  margin-left: 4rem;
-  display: flex;
-  gap: 4rem;
 
-  .about-button {
-    display: flex;
-    align-items: center;
-
-    button {
+    .about-button {
+      margin-top: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border: 2px solid #00b8c2;
-      border-radius: 30px;
-      color: #00b8c2;
-      font-size: 1.2rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
 
-      .about-icon {
-        font-size: 1.3rem;
-      }
+      button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        border: 2px solid #00b8c2;
+        border-radius: 30px;
+        color: #00b8c2;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
 
-      &:hover {
-        background-color: #00b8c2;
-        color: #000; 
-        transform: scale(1.05);
+        .about-icon {
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          background-color: #00b8c2;
+          color: #000;
+          transform: scale(1.05);
+        }
       }
     }
   }
 }
 
-  }
+/* Programming animation floating background */
+.code-animation {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  opacity: 0.2;
+  font-family: 'Fira Code', monospace;
+  color: #00b8c2;
+  animation: float 8s infinite alternate;
+}
 
-  // subtle programming animation background
-  .code-animation {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-    opacity: 0.2;
-    font-family: 'Fira Code', monospace;
-    color: #00b8c2;
-    animation: float 8s infinite alternate;
-  }
+@keyframes float {
+  from { transform: translate(-50%, 0); }
+  to   { transform: translate(-50%, -20px); }
+}
 
-  @keyframes float {
-    from { transform: translate(-50%, 0); }
-    to   { transform: translate(-50%, -20px); }
+/* Navbar at bottom center */
+.bottom-navbar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  transition: background 0.5s, color 0.5s;
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    transition: 0.3s;
+    &:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
   }
 }
 
-
-
-  // Navbar at bottom center
-  .bottom-navbar {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    transition: background 0.5s, color 0.5s;
-    
-    a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 500;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      transition: 0.3s;
-      &:hover {
-        background-color: rgba(255,255,255,0.2);
-      }
-    }
-  }
-
-
-// Dark / light mode variables
+/* Themes */
 :root {
   --bg-color: #ffffff;
   --text-color: #000000;
 }
-
 body.dark {
   --bg-color: #000000;
   --text-color: #ffffff;
 }
 
+/* Navbar styles */
 .navbar {
   position: fixed;
   bottom: 20px;
@@ -241,7 +223,7 @@ body.dark {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.2); 
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
   ul {
@@ -266,10 +248,9 @@ body.dark {
     color: #000;
   }
 
-  // Dark mode styles
   .dark & {
     background: rgba(0, 0, 0, 0.5);
-    
+
     ul li {
       color: #fff;
     }
@@ -280,8 +261,7 @@ body.dark {
   }
 }
 
-
-/* programming tags background */
+/* Floating programming tags */
 .code-animation {
   position: absolute;
   width: 100%;
@@ -290,8 +270,8 @@ body.dark {
   left: 0;
   pointer-events: none;
   font-family: 'Fira Code', monospace;
-  font-size: 2rem;
-  color: #00b8c2; 
+  font-size: 1.5rem;
+  color: #00b8c2;
   opacity: 0.15;
 
   display: flex;
@@ -305,7 +285,6 @@ body.dark {
   }
 }
 
-/* random float */
 @keyframes floatTags {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
@@ -321,23 +300,19 @@ body.dark {
   }
 }
 
-.intro-text h2 {
-    margin: 0;
-    font-size: 4rem;
-    font-weight: 600;
-  span{
-    text-shadow: 0 0 1px #3a6466, 0 0 25px #00b8c2;
-    color: #3a6466;
-  }
-}
-
-/* make icons auto change size + blink */
+/* Auto-blinking icons */
 .social-icons .icon-wrapper a svg {
   animation: pulseBlink 2s infinite;
 }
 
 @keyframes pulseBlink {
   0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 0.8; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* Global fix for mobile overflow */
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
