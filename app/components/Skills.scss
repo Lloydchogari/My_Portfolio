@@ -1,6 +1,8 @@
 // Mobile Responsiveness
 @media (max-width: 1024px) {
   .skills-page {
+    overflow-y: auto;
+    
     .code-animation {
       width: 350px;
       height: 280px;

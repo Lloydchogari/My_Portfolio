@@ -23,7 +23,7 @@
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: all 0.5s ease;
-  overflow: hidden;
+  overflow: auto;
 
   // Dramatic spotlight effect for dark mode
   .spotlight-effect {
@@ -369,9 +369,10 @@
       }
 
       .social-icons {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
+        justify-content: space-between; // spread them evenly across the row
+        flex-wrap: nowrap;              // prevent wrapping
+        gap: 0.25rem;                   // tiny gap, optional
+        padding: 0 0.5rem; 
 
         .social-link {
           width: 45px;

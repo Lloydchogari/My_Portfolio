@@ -37,13 +37,13 @@ const Projects = () => {
   }, [darkMode]);
 
   const websiteProjects: Project[] = [
-    { title: 'Checkin System', description: 'An attendance tracker checkin system.', tags: ['Next.Js', 'Tailwind'], image: '/clock.png', github: '#', live: 'https://attendance-tracker-frontend-eight.vercel.app/' },
-    { title: 'Git Commands App', description: 'An offline app for all github commands.', tags: ['Javascript', 'PWA'], image: '/clock.png', github: '#', live: 'https://git-commands-application.vercel.app/' },
+    { title: 'Checkin System', description: 'An attendance tracker checkin system.', tags: ['Next.Js', 'Tailwind'], image: '/clock.png', github: 'https://github.com/samzana/attendance-tracker-frontend.git', live: 'https://attendance-tracker-frontend-eight.vercel.app/' },
+    { title: 'Git Commands App', description: 'An offline app for all github commands.', tags: ['Javascript', 'PWA'], image: '/clock.png', github: 'https://github.com/Lloydchogari/Git_Commands_Application.git', live: 'https://git-commands-application.vercel.app/' },
   ];
 
   const applicationProjects: Project[] = [
-    { title: 'CM Logistics', description: 'A website for CM Logistics shipping company.', tags: ['React', 'SCSS'], image: '/clock.png', github: '#', live: 'https://cm-logistics.vercel.app/' },
-    { title: 'Phone Number Detector', description: 'An offline app to detect the country of any phone number.', tags: ['HTML', 'Javascript'], image: '/clock.png', github: '#', live: 'https://countrynumberdetector.netlify.app/' },
+    { title: 'CM Logistics', description: 'A website for CM Logistics shipping company.', tags: ['React', 'SCSS'], image: '/clock.png', github: 'https://github.com/Lloydchogari/CM-Logistics.git', live: 'https://cm-logistics.vercel.app/' },
+    { title: 'Phone Number Detector', description: 'An offline app to detect the country of any phone number.', tags: ['HTML', 'Javascript'], image: '/clock.png', github: 'https://github.com/Lloydchogari/PhoneNumberCountryDetector.git', live: 'https://countrynumberdetector.netlify.app/' },
   ];
 
   const otherProjects: Project[] = Array.from({ length: 10 }, (_, i) => ({
