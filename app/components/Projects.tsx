@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import './Projects.scss';
-import Navbar from '../components/Navbar'; 
 
 
 interface Project {
@@ -95,7 +94,7 @@ const Projects = () => {
   return (
     <div className="projects-page">
          {/* Fixed Navbar */}
-         <Navbar/>
+        
       <h1 className="intro-heading">My Projects</h1>
       
       <div className="projects-category-container">
